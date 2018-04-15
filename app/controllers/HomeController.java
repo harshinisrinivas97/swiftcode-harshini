@@ -22,4 +22,10 @@ public class HomeController extends Controller {
     {
         return ok(chat.render());
     }
+    //LegacyWebSocket states that the web socket is established.
+    public LegacyWebSocket<String> chatSocket()
+    {
+        //the method returns a web socket associated with actor(of type MessageActor)that is attached to it with default props
+        return WebSocket.withActor(MessageActor::props);
+    }
 }
